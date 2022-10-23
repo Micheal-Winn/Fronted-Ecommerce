@@ -1,4 +1,41 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    margin: 0;
+    scroll-behavior: smooth;
 }
+
+.banner::after {
+    content: '';
+    width: 100vw;
+    min-height: 100vh;
+    background-color: white;
+    position: absolute;
+    top:0;
+    left: 0;
+    clip-path: polygon(100% 75%, 0 100%, 100% 100%);
+}
+.margin {
+    padding: 1vmax;
+}
+
+
+.par {
+    font-size: 1.2vmax;
+    margin : 1vmax 0.5vmax;
+}
+.carousel{
+    background-color: rgb(214,214,214);
+    width: 100vw;
+    max-width: 100%;
+    padding: 6vmax;
+    height: 10rem;
+    box-sizing: border-box;
+    display: flex;
+}
+/*.width{*/
+/*    width: 10vmax;*/
+/*    height: 10vmax;*/
+/*}*/

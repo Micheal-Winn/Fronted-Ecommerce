@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Ecommerce-realworld/.idea/Ecommerce-realworld.iml" filepath="$PROJECT_DIR$/../Ecommerce-realworld/.idea/Ecommerce-realworld.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/frontend-online-shopping.iml" filepath="$PROJECT_DIR$/.idea/frontend-online-shopping.iml" />
     </modules>
   </component>
