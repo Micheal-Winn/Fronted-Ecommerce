@@ -1,5 +1,6 @@
-import {Fragment, useState} from "react";
+import React, {Fragment, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import Helmet from "react-helmet";
 
 
 export default function Search()
@@ -16,6 +17,13 @@ export default function Search()
     }
     return(
        <Fragment>
+
+           <Helmet>
+               <title>
+                   SEARCH A PRODUCT -- ECOMMERCE
+               </title>
+           </Helmet>
+
            <form className={'w-screen h-screen  max-w-full flex justify-center align-middle bg-gray-100 fixed top-0 left-0'} onSubmit={submitHandler}>
 
                    <input className={'h-[8%] my-auto border-none outline-0 shadow-md text-gray-700 px-[2vmax] py-[1vmax] w-1/2 font-bold box-border'}

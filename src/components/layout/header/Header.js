@@ -12,10 +12,10 @@ export default function Header()
                 <img src={logo} alt={'logo'}/>
             </div>
                 <ul className={'flex justify-between gap-24'}>
-                    <li className={'font-medium uppercase hover:text-pink-500'}><NavLink to={'/product'}
+                    <li className={'font-medium uppercase hover:text-pink-500'}><NavLink to={'/'}
                       className={(navData)=> navData.isActive? 'text-blue-500': ''}
                     >Home</NavLink></li>
-                    <li className={'font-medium uppercase hover:text-pink-500'}><NavLink to={'/product/products'}
+                    <li className={'font-medium uppercase hover:text-pink-500'}><NavLink to={'/product'}
                      className={(navData)=> navData.isActive? 'text-blue-500': ''}
                     >Products</NavLink></li>
                     <li className={'font-medium uppercase hover:text-pink-500'}><NavLink to={'/about'}

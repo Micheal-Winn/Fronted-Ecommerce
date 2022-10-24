@@ -10,8 +10,9 @@ import RootLayout from "./components/layout/RootLayout";
 import ProductUi from "./components/layout/ProductUi";
 import Helmet from 'react-helmet'
 import ProductDetails from "./components/products/ProductDetails";
-import Products from "./components/products/Products";
+
 import Search from "./components/products/Search";
+import LoginSignUp from "./components/User/LoginSignUp";
 
 
 
@@ -35,11 +36,10 @@ function App() {
                 <Route  path='/product' element={<RootLayout/>}>
                     <Route index element={<ProductUi/>}/>
                     <Route path=':id' element={<ProductDetails/>}/>
-                    <Route path={'products'} element={<Products/>}/>
-                    <Route path={'products/:keyword'} element={<Products/>}/>
+                    <Route path={'products/:keyword'} element={<ProductUi/>}/>
                 </Route>
                 <Route path={'/search'} element={<Search/>}/>
-
+                <Route path={'/login'} element={<LoginSignUp/>}/>
             </Routes>
         </Fragment>
 )

@@ -1,9 +1,10 @@
-import {Fragment, useEffect} from "react";
+import React, {Fragment, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProductDetails, getProductDetailsById} from "../../features/productsFetching/productDetailsSlice";
 import ReactStars from "react-rating-stars-component/dist/react-stars";
 import ReviewCard from "./ReviewCard";
+import Helmet from "react-helmet";
 
 export default function ProductDetails()
 {
@@ -29,6 +30,13 @@ export default function ProductDetails()
     return(
         /// prepare loading router 6.4
        <Fragment>
+
+           <Helmet>
+               <title>
+                   {`${product.name} -- ECOMMERCE`}
+               </title>
+           </Helmet>
+
            <div className={'p-16 flex w-4/5 mx-auto bg-white md:max-md:flex-col md:max-md:justify-center'}>
                    {/* eslint-disable-next-line react/style-prop-object */}
                    <div className={'w-2/4 md:max-md:w-[15rem] overflow-hidden flex w-full flex-col md:justify-center align-middle box-border border-2 border-green-400 h-96' +
