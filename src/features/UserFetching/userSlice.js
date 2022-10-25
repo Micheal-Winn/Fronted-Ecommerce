@@ -3,8 +3,8 @@ import {apiLogin} from "./userApi";
 
 
 const initialState = {
-    user :{},
-    isAuthenticated : ''
+    user :'',
+    Authenticated : null
 }
 
 export const loginUser = createAsyncThunk(
@@ -23,11 +23,11 @@ const userSlice = createSlice({
         builder
             .addCase(loginUser.fulfilled,(state,action)=>{
                 state.user = action.payload.user;
-                state.isAuthenticated = true
+                state.Authenticated = true
             })
            
     }
 })
 
-
+export const isAuthenticated = (state)=>state.user.Authenticated;
 export default userSlice.reducer

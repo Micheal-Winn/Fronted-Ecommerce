@@ -1,15 +1,17 @@
 import React, {Fragment, useEffect, useRef, useState} from 'react'
 import {Face, LockOpen, MailOutline} from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import profilePng from '../../images/profilepng.png'
-import {loginUser} from "../../features/UserFetching/userSlice";
-
-const LoginSignUp = ({ history, location }) => {
+import { loginUser} from "../../features/UserFetching/userSlice";
+import {apiRegister} from "../../features/UserFetching/userApi";
+const LoginSignUp = ({  location }) => {
 
     const dispatch = useDispatch();
-
-
+    const navigate = useNavigate()
+    // eslint-disable-next-line no-use-before-define
+    const {Authenticated}= useSelector(state => state.user)
     const loginTab = useRef(null);
     const registerTab = useRef(null);
     const switcherTab = useRef(null);
@@ -42,7 +44,7 @@ const LoginSignUp = ({ history, location }) => {
         myForm.set("email", email);
         myForm.set("password", password);
         myForm.set("avatar", avatar);
-        // dispatch(register(myForm));
+        dispatch(apiRegister({myForm}));
     };
 
     const registerDataChange = (e) => {
@@ -64,11 +66,11 @@ const LoginSignUp = ({ history, location }) => {
 
     // const redirect = location.search ? location.search.split("=")[1] : "/account";
 
-    // useEffect(() => {
-    //         if (isAuthenticated) {
-    //             history.push(redirect);
-    //         }
-    //     }, [dispatch, error, alert, history, isAuthenticated, redirect]);
+    useEffect(() => {
+            if (Authenticated) {
+                navigate('/account');
+            }
+        }, [dispatch,navigate, Authenticated]);
 
         const switchTabs = (e, tab) => {
             if (tab === "login") {

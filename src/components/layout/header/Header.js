@@ -28,7 +28,7 @@ export default function Header()
                 <ul className={'flex justify-between gap-20'}>
                     <li className={'hover:text-orange-500'}><NavLink to={'/search'}><FaSearch/></NavLink></li>
                     <li className={'hover:text-orange-500'}><NavLink to={'/cart'}><FaCartPlus/></NavLink></li>
-                    <li className={'hover:text-orange-500'}><NavLink to={'/profile'}><FaUser/></NavLink></li>
+                    <li className={'hover:text-orange-500'}><NavLink to={'/login'}><FaUser/></NavLink></li>
                 </ul>
         </nav>
     )

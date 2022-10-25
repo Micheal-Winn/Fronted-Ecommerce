@@ -6,5 +6,11 @@ const API = API_URL+'user/'
 export const apiLogin = (email,password)=>
 {
     const config = {headers:{"Content-Type" : "application/json"}};
-    return axios.post(API+'login',{email,password},config)
+    return axios.post(API+'login',{email,password},{config})
+}
+
+export const apiRegister = (userData)=>
+{
+    const config = {headers : {"Content-Type" : "multipart/form-data"}}
+    return axios.post(API+'register', {userData}, {config})
 }
