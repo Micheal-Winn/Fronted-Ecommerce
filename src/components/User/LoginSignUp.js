@@ -4,8 +4,7 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import profilePng from '../../images/profilepng.png'
-import { loginUser} from "../../features/UserFetching/userSlice";
-import {apiRegister} from "../../features/UserFetching/userApi";
+import {loginUser, registerUser} from "../../features/UserFetching/userSlice";
 const LoginSignUp = ({  location }) => {
 
     const dispatch = useDispatch();
@@ -38,27 +37,30 @@ const LoginSignUp = ({  location }) => {
     const registerSubmit = (e) => {
         e.preventDefault();
 
-        const myForm = new FormData();
+        // const myForm = new FormData();
+        //
+        // myForm.append("name", name);
+        // myForm.append("email", email);
+        // myForm.append("password", password);
+        // myForm.append("avatar", avatar);
+        // console.log(myForm.get('name'))
+        // dispatch(registerUser(myForm))
 
-        myForm.set("name", name);
-        myForm.set("email", email);
-        myForm.set("password", password);
-        myForm.set("avatar", avatar);
-        dispatch(apiRegister({myForm}));
-    };
+        dispatch(registerUser({name,email,password}))
+    }
+    ;
 
     const registerDataChange = (e) => {
         if (e.target.name === "avatar") {
+            const file = e.target.files[0]
             const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend=()=>{
+                setAvatar(reader.result)
+                setAvatarPreview(reader.result)
+            }
 
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    setAvatarPreview(reader.result);
-                    setAvatar(reader.result);
-                }
-            };
 
-            reader.readAsDataURL(e.target.files[0]);
         } else {
             setUser({ ...user, [e.target.name]: e.target.value });
         }

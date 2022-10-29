@@ -17,6 +17,7 @@ const Home = () => {
             </Link>
         </div>
         <Outlet/>
+        {console.log('hello')}
     </Fragment>
   )
 }

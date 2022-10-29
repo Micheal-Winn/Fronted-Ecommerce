@@ -9,8 +9,12 @@ export const apiLogin = (email,password)=>
     return axios.post(API+'login',{email,password},{config})
 }
 
-export const apiRegister = (userData)=>
+export const apiRegister = (name,email,password)=>
 {
-    const config = {headers : {"Content-Type" : "multipart/form-data"}}
-    return axios.post(API+'register', {userData}, {config})
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    return axios.post(API+'register', {name,email,password}, {config})
+}
+
+export const apiLoadUser = ()=>{
+    return axios.get(API+'me')
 }

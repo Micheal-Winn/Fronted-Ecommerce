@@ -10,19 +10,25 @@ import RootLayout from "./components/layout/RootLayout";
 import ProductUi from "./components/layout/ProductUi";
 import Helmet from 'react-helmet'
 import ProductDetails from "./components/products/ProductDetails";
-
+import {store} from './app/store'
 import Search from "./components/products/Search";
 import LoginSignUp from "./components/User/LoginSignUp";
+import {loadUser} from "./features/UserFetching/userSlice";
+import {useSelector} from "react-redux";
 
 
 
 function App() {
+
+    const {Authenticated ,user} = useSelector((state)=> state.user)
+
     React.useEffect(()=>{
         WebFont.load({
             google:{
                 families :['Roboto','Droid']
             }
         })
+        // store.dispatch(loadUser())
     },[])
   return (<Fragment>
           <Helmet>
@@ -32,6 +38,7 @@ function App() {
           </Helmet>
 
             <Routes >
+                {Authenticated && <UserOptions user={user}/>}
                 <Route index path={'/'} element={<Home/>}/>
                 <Route  path='/product' element={<RootLayout/>}>
                     <Route index element={<ProductUi/>}/>
